@@ -1,0 +1,3 @@
+[submodule "classics"]
+	path = classics
+	url = https://github.com/S-KSM/illustrated-classics.git
