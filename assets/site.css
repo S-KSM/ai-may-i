@@ -168,7 +168,7 @@ footer a:hover { border-color: var(--ink); }
 .about-grid { display: grid; grid-template-columns: 1fr; gap: 40px; margin-top: 28px; }
 @media (min-width: 800px) { .about-grid { grid-template-columns: 280px 1fr; gap: 56px; } }
 .about-card { background: var(--card); border: 1px solid var(--border); border-radius: 22px; padding: 22px; position: sticky; top: 24px; align-self: start; }
-.about-card .avatar { width: 100%; aspect-ratio: 1; border-radius: 18px; background: linear-gradient(135deg, var(--citrus), var(--coral)); display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-weight: 900; font-size: 78px; color: #fff; margin-bottom: 18px; }
+.about-card .avatar { width: 100%; aspect-ratio: 1; border-radius: 18px; background: linear-gradient(135deg, var(--citrus), var(--coral)); display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-weight: 900; font-size: 78px; color: #fff; margin-bottom: 18px; object-fit: cover; }
 .about-card h2 { font-family: 'Fraunces', serif; font-size: 24px; margin-bottom: 4px; }
 .about-card .role { color: var(--ink-soft); font-size: 14px; margin-bottom: 16px; }
 .about-card .links { display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
