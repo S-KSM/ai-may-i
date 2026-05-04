@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="p:domain_verify" content="4e47933dbd1b9fc2947f3228d4cbd5af"/>
+<title>Dispatch — mission control for AI agents · ai, may I?</title>
+<meta name="description" content="Dispatch is air-traffic-control for AI agents on your Mac. Live monitoring, methodology trace, and mid-flight intercepts for Claude Code sessions. Local-only, open source.">
+<meta property="og:title" content="Dispatch — mission control for AI agents">
+<meta property="og:description" content="Air-traffic-control for AI agents on your Mac. Watch the radar, trace methodology, intercept mid-flight. Local-only, open source.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ai-may-i.com/dispatch/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800;9..144,900&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+.lexicon { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 24px; }
+.lex {
+    background: var(--card); border: 1px solid var(--border); border-radius: 18px;
+    padding: 22px 24px;
+}
+.lex .name { font-family: 'Fraunces', serif; font-weight: 800; font-size: 20px; margin-bottom: 4px; }
+.lex .role { font-family: 'Caveat', cursive; color: var(--coral); font-size: 18px; margin-bottom: 8px; }
+.lex p { color: var(--ink-soft); font-size: 15px; line-height: 1.55; }
+.code-block {
+    background: #1a1a1a; color: #f5efe0; border-radius: 14px;
+    padding: 18px 22px; margin-top: 16px; overflow-x: auto;
+    font-family: 'SF Mono', ui-monospace, monospace; font-size: 14px; line-height: 1.55;
+}
+.code-block .c { color: #8a8578; }
+.callout {
+    background: var(--bg-alt); border-left: 3px solid var(--coral);
+    border-radius: 8px; padding: 16px 20px; margin-top: 20px;
+    font-size: 15px; color: var(--ink-soft);
+}
+</style>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "22ce75db169a4525ae1cbe0d381c1fa5"}'></script>
+</head>
+<body>
+
+<div class="bg-shapes" aria-hidden="true">
+    <svg class="shape s1" viewBox="0 0 100 100"><path d="M50 10 L61 39 L92 39 L67 57 L77 86 L50 68 L23 86 L33 57 L8 39 L39 39 Z" fill="#ffd43b"/></svg>
+    <svg class="shape s2" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="#51cf66" stroke-width="6"/></svg>
+    <svg class="shape s3" viewBox="0 0 120 80"><path d="M10 40 Q 30 10, 60 40 T 110 40" stroke="#74c0fc" stroke-width="8" fill="none" stroke-linecap="round"/></svg>
+    <svg class="shape s4" viewBox="0 0 100 100"><path d="M50 10 C 70 30, 70 50, 50 50 C 30 50, 30 30, 50 10 Z M50 50 C 70 70, 70 90, 50 90 C 30 90, 30 70, 50 50 Z" fill="#d0bfff"/></svg>
+</div>
+
+<div class="container">
+    <header>
+        <a href="/" class="logo"><span class="logo-dot"></span> ai, may I?</a>
+        <nav>
+            <a href="/">Work</a>
+            <a href="/blog/">Blog</a>
+            <a href="/about/">About</a>
+            <a href="https://www.instagram.com/ink.visions/" target="_blank" rel="noopener">Instagram</a>
+        </nav>
+    </header>
+
+    <section class="app-hero">
+        <div class="icon-block">
+            <img src="icon.png" alt="Dispatch app icon" width="200" height="200">
+        </div>
+        <div>
+            <span class="section-label">✺ developer preview</span>
+            <h1>Dispatch</h1>
+            <p class="tagline">Air-traffic-control for AI agents. Watch the radar, trace methodology, intercept mid-flight, broadcast new protocols across the fleet. Don't just run agents — dispatch them.</p>
+            <div class="pills">
+                <span class="pill">macOS 14+</span>
+                <span class="pill">Apple Silicon</span>
+                <span class="pill">Local-only</span>
+                <span class="pill">Open source</span>
+                <span class="pill">v1.4</span>
+            </div>
+            <div class="actions">
+                <a class="btn" href="dispatch-source.zip" download>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Download source (3.5 MB)
+                </a>
+                <a class="btn btn-soft" href="https://github.com/S-KSM/Manager" target="_blank" rel="noopener">View on GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <span class="section-label">✺ what it does</span>
+        <div class="lexicon">
+            <div class="lex">
+                <div class="role">live monitoring</div>
+                <div class="name">The Radar</div>
+                <p>Glanceable home view — digest rail, team floor of agent cards, live ticker. See every workstream at once.</p>
+            </div>
+            <div class="lex">
+                <div class="role">methodology tracking</div>
+                <div class="name">The Trace</div>
+                <p>Forensic trail of <em>why</em> — structured decision events (<code>considered</code>, <code>choice</code>, <code>rationale</code>, <code>confidence</code>) as a timeline, not a transcript.</p>
+            </div>
+            <div class="lex">
+                <div class="role">mid-flight intervention</div>
+                <div class="name">Intercept</div>
+                <p>Three modes — <strong>nudge</strong> (advisory), <strong>redirect</strong> (hard course-correct), <strong>rollback</strong> (rewind to a decision and replay with a hint).</p>
+            </div>
+            <div class="lex">
+                <div class="role">skill broadcast</div>
+                <div class="name">The Protocol</div>
+                <p>Agent proposes a pattern via <code>propose_skill</code>; you promote it to the team handbook; every workstream's next session adopts it.</p>
+            </div>
+            <div class="lex">
+                <div class="role">persistent memory</div>
+                <div class="name">The Dossier</div>
+                <p>Per-workstream Markdown the agent maintains across sessions — identity that survives <code>claude</code> restarts.</p>
+            </div>
+            <div class="lex">
+                <div class="role">summaries on demand</div>
+                <div class="name">Updates</div>
+                <p>LLM-generated weekly / monthly digests. Audience-tuned. Claude API or local Ollama. Scheduled or one-shot.</p>
+            </div>
+        </div>
+    </section>
+
+    <section style="margin-top: 56px;">
+        <span class="section-label">✺ install (60 seconds)</span>
+        <div class="install-steps">
+            <ol>
+                <li><strong>Get the source.</strong> Either clone the repo or unzip the download:
+<div class="code-block"><span class="c"># option a — git</span>
+git clone https://github.com/S-KSM/Manager.git ~/Code/Manager
+
+<span class="c"># option b — download</span>
+curl -L https://ai-may-i.com/dispatch/dispatch-source.zip -o /tmp/dispatch.zip
+unzip /tmp/dispatch.zip -d ~/Code &amp;&amp; mv ~/Code/dispatch ~/Code/Manager</div>
+                </li>
+                <li><strong>Run the installer.</strong> Idempotent and confirms each step. Builds the daemon, builds the macOS app, copies it to <code>/Applications</code>, wires hooks into <code>~/.claude/settings.json</code>, registers the launchd agent, migrates legacy v1.1.x state.
+<div class="code-block">bash ~/Code/Manager/bin/install.sh</div>
+                Dry-run prereq check first: <code>bash bin/install.sh --check-only</code>. Skip the app build: <code>--skip-app</code>. Auto-approve: <code>--yes</code>.
+                </li>
+                <li><strong>(Optional) Enable Updates.</strong> For LLM-written weekly / monthly summaries:
+<div class="code-block">export ANTHROPIC_API_KEY=sk-ant-...
+<span class="c"># or run a local model:</span>
+brew install ollama &amp;&amp; ollama serve &amp;&amp; ollama pull qwen3:8b</div>
+                </li>
+                <li><strong>Use Claude in any project.</strong> Dispatch derives the workstream from the git-root basename:
+<div class="code-block">cd ~/Code/some-project
+claude</div>
+                A card for <code>some-project</code> appears on the Radar within seconds. Decision events stream into the Trace live.
+                </li>
+            </ol>
+        </div>
+        <div class="callout">
+            <strong>Prereqs:</strong> macOS 14+ on Apple Silicon, Xcode command-line tools, Node.js 18+, and the <code>claude</code> CLI. The installer never sudoes — if a step needs elevation it prints a clear instruction.
+        </div>
+        <div class="callout">
+            <strong>Uninstall:</strong> <code>bash ~/Code/Manager/bin/uninstall.sh</code> removes the launchd agent, hooks, app, and state under <code>~/.claude/dispatch/</code>.
+        </div>
+    </section>
+
+    <section style="margin-top: 56px;">
+        <span class="section-label">✺ where state lives</span>
+        <p style="color: var(--ink-soft); margin-top: 8px; max-width: 720px;">Everything local-only. The daemon binds to <code>localhost:9876</code>. No auth, no remote access in v1 (both arrive in v1.5 with the iOS client).</p>
+        <div class="code-block">~/.claude/dispatch/
+├── db.sqlite           <span class="c"># workstream registry, intercepts, skill proposals, reports</span>
+├── events/&lt;id&gt;.jsonl   <span class="c"># append-only event log per workstream</span>
+├── memory/&lt;id&gt;.md      <span class="c"># per-workstream Dossier (agent-curated Markdown)</span>
+├── handbook.md         <span class="c"># team-wide promoted Protocols</span>
+└── scheduler.json      <span class="c"># weekly / monthly report cron config</span></div>
+    </section>
+
+    <section style="margin-top: 56px;">
+        <span class="section-label">✺ autonomous mode (v1.4, optional)</span>
+        <p style="color: var(--ink-soft); margin-top: 8px; max-width: 720px;">By default Dispatch is purely <em>observational</em> — you launch <code>claude</code>, Dispatch watches. With a <code>WORKFLOW.md</code> it also drives: an orchestrator polls a tracker (Linear or a mock JSON file), claims tickets, and spawns <code>claude</code> per turn inside per-issue workspaces. Same hooks, same event store, same Radar / Trace / Intercept.</p>
+        <div class="code-block">export LINEAR_TOKEN=lin_api_...
+dispatch start --workflow ~/dispatch/WORKFLOW.md</div>
+    </section>
+
+    <section style="margin: 56px 0 20px;">
+        <span class="section-label">✺ why this exists</span>
+        <p style="color: var(--ink-soft); margin-top: 8px; max-width: 720px;">Today's tooling pushes you into one of two modes: live single-agent supervision (Cursor, Claude Code in a terminal) — high fidelity, but only one agent at a time. Or outcome-based ticket tracking (Linear, Jira) — scales to many, but you only see results, never <em>how</em> the agent got there.</p>
+        <p style="color: var(--ink-soft); margin-top: 14px; max-width: 720px;">Jira tells you what happened yesterday. Claude Code tells you what one agent is doing right now. <strong>Dispatch</strong> gives you the high-fidelity oversight to manage an entire department of agents in real-time.</p>
+    </section>
+
+    <footer>
+        <div>© 2026 Shobeir Seddington · <a href="mailto:shobmaz@gmail.com">shobmaz@gmail.com</a></div>
+        <div><a href="https://github.com/S-KSM/Manager" target="_blank" rel="noopener">github.com/S-KSM/Manager</a></div>
+    </footer>
+</div>
+
+</body>
+</html>
