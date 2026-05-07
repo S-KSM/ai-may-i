@@ -83,6 +83,18 @@
         </div>
     </section>
 
+    <section style="margin-top: 32px;">
+        <div class="callout">
+            <strong>First launch — Gatekeeper warning.</strong> Dispatch is not yet notarized, so macOS shows <em>"Apple could not verify Dispatch is free of malware"</em> and offers only <em>Move to Trash</em> / <em>Done</em>. To allow it:
+            <ol style="margin: 10px 0 0 18px; padding: 0;">
+                <li>Click <strong>Done</strong> on the warning (do <em>not</em> Move to Trash).</li>
+                <li>Open <strong>System Settings → Privacy &amp; Security</strong>, scroll to the bottom — you'll see <em>"Dispatch was blocked…"</em> with an <strong>Open Anyway</strong> button.</li>
+                <li>Click <strong>Open Anyway</strong>, authenticate, then re-launch Dispatch.</li>
+            </ol>
+            <div style="margin-top: 10px;">Or, from a terminal: <code>xattr -dr com.apple.quarantine /Applications/Dispatch.app</code>. Notarized builds land in a future release.</div>
+        </div>
+    </section>
+
     <section>
         <span class="section-label">✺ what it does</span>
         <div class="lexicon">
