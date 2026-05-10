@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="p:domain_verify" content="4e47933dbd1b9fc2947f3228d4cbd5af"/>
+<title>Resona — your mind, in tune. · ai, may I?</title>
+<meta name="description" content="Resona is a privacy-first brain-computer interface for AI agents. A Muse headband + a Mac app teach your tools — Claude, Cursor, custom MCP clients — when you're focused and when to back off. Raw EEG never leaves your Mac.">
+<meta property="og:title" content="Resona — your mind, in tune.">
+<meta property="og:description" content="A privacy-first brain-state interface for AI agents. Muse + Mac. Raw EEG stays local.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ai-may-i.com/resona/">
+<meta property="og:image" content="https://ai-may-i.com/resona/icon.svg">
+<link rel="icon" href="/resona/mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800;9..144,900&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+:root {
+    --indigo-deep: #1B1B3A;
+    --indigo-black: #0E0E22;
+    --amber-lock: #FFC857;
+    --amber-glow: #FFE9B0;
+    --cream-wave: #F8E9C5;
+}
+.lexicon { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 24px; }
+.lex {
+    background: var(--card); border: 1px solid var(--border); border-radius: 18px;
+    padding: 22px 24px;
+}
+.lex .name { font-family: 'Fraunces', serif; font-weight: 800; font-size: 20px; margin-bottom: 4px; color: var(--indigo-deep); }
+.lex .role { font-family: 'Caveat', cursive; color: var(--amber-lock); filter: brightness(0.85); font-size: 18px; margin-bottom: 8px; }
+.lex p { color: var(--ink-soft); font-size: 15px; line-height: 1.55; }
+.code-block {
+    background: var(--indigo-black); color: var(--cream-wave); border-radius: 14px;
+    padding: 18px 22px; margin-top: 16px; overflow-x: auto;
+    font-family: 'SF Mono', ui-monospace, monospace; font-size: 14px; line-height: 1.55;
+}
+.code-block .c { color: #8a8eb0; }
+.callout {
+    background: var(--bg-alt); border-left: 3px solid var(--amber-lock);
+    border-radius: 8px; padding: 16px 20px; margin-top: 20px;
+    font-size: 15px; color: var(--ink-soft);
+}
+.app-hero .icon-block img { border-radius: 28px; box-shadow: 0 24px 60px -28px rgba(27,27,58,0.55); }
+.app-hero .pill {
+    background: var(--indigo-deep); color: var(--cream-wave); border: none;
+}
+.btn-primary {
+    background: var(--indigo-deep); color: var(--cream-wave); border: none;
+}
+.btn-primary:hover { background: var(--indigo-black); color: var(--amber-glow); }
+.brand-band {
+    background: linear-gradient(135deg, var(--indigo-deep), var(--indigo-black));
+    color: var(--cream-wave); border-radius: 24px; padding: 28px 32px;
+    margin-top: 56px;
+}
+.brand-band h2 {
+    font-family: 'Fraunces', serif; font-weight: 800; font-size: 28px;
+    color: var(--amber-glow); margin-bottom: 8px;
+}
+.brand-band p { color: #c7c7e0; font-size: 16px; line-height: 1.6; max-width: 680px; }
+.brand-band em { color: var(--amber-glow); font-style: italic; }
+</style>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "22ce75db169a4525ae1cbe0d381c1fa5"}'></script>
+</head>
+<body>
+
+<div class="bg-shapes" aria-hidden="true">
+    <svg class="shape s1" viewBox="0 0 100 100"><path d="M50 10 L61 39 L92 39 L67 57 L77 86 L50 68 L23 86 L33 57 L8 39 L39 39 Z" fill="#ffd43b"/></svg>
+    <svg class="shape s2" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="#51cf66" stroke-width="6"/></svg>
+    <svg class="shape s3" viewBox="0 0 120 80"><path d="M10 40 Q 30 10, 60 40 T 110 40" stroke="#74c0fc" stroke-width="8" fill="none" stroke-linecap="round"/></svg>
+    <svg class="shape s4" viewBox="0 0 100 100"><path d="M50 10 C 70 30, 70 50, 50 50 C 30 50, 30 30, 50 10 Z M50 50 C 70 70, 70 90, 50 90 C 30 90, 30 70, 50 50 Z" fill="#d0bfff"/></svg>
+</div>
+
+<div class="container">
+    <header>
+        <a href="/" class="logo"><span class="logo-dot"></span> ai, may I?</a>
+        <nav>
+            <a href="/">Work</a>
+            <a href="/blog/">Blog</a>
+            <a href="/about/">About</a>
+            <a href="https://www.instagram.com/ink.visions/" target="_blank" rel="noopener">Instagram</a>
+        </nav>
+    </header>
+
+    <section class="app-hero">
+        <div class="icon-block">
+            <img src="icon.svg" alt="Resona app icon" width="200" height="200">
+        </div>
+        <div>
+            <span class="section-label">✺ developer preview</span>
+            <h1>Resona</h1>
+            <p class="tagline"><em>your mind, in tune.</em> A privacy-first brain-computer interface for AI agents. A Muse headband + a Mac app teach your tools — Claude, Cursor, custom MCP clients — when you're focused and when to back off. Raw EEG never leaves your Mac.</p>
+            <div class="pills">
+                <span class="pill">macOS 14+</span>
+                <span class="pill">Apple Silicon</span>
+                <span class="pill">Muse-14B3</span>
+                <span class="pill">Local-only</span>
+                <span class="pill">MCP-native</span>
+            </div>
+            <div class="actions">
+                <a class="btn btn-primary" href="mailto:shobmaz@gmail.com?subject=Resona%20preview%20access&body=Hi%20Shobeir%2C%20I%27d%20like%20to%20try%20Resona.%20I%20own%20a%20Muse%3A%20%5Byes%2Fno%5D%2C%20and%20I%27d%20use%20it%20for%3A%20%5Bcontext%5D.">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    Request preview access
+                </a>
+                <a class="btn btn-soft" href="#what">What it does</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="brand-band">
+        <h2>Calm productivity tools have been guessing for 30 years.</h2>
+        <p>Resona stops guessing. It reads your focus state from a Muse headband, locally, and tells your AI agents when to back off. Notifications hush. The Coach speaks slower. The Skeptic stops second-guessing your flow state. Two interlocking waves — brain and agent — meet at a single luminous point: phase lock, not noise on top.</p>
+    </section>
+
+    <section id="what" style="margin-top: 56px;">
+        <span class="section-label">✺ what it does</span>
+        <div class="lexicon">
+            <div class="lex">
+                <div class="role">live brain-state</div>
+                <div class="name">The Live Tab</div>
+                <p>4 EEG channels (TP9/AF7/AF8/TP10) → bandpass + Welch FFT → α/β/θ/δ/γ powers → <strong>Focus Coefficient F = β/α</strong>. End-to-end under 500&nbsp;ms. Plotted with Swift Charts in real time.</p>
+            </div>
+            <div class="lex">
+                <div class="role">personal baseline</div>
+                <div class="name">Calibration</div>
+                <p>60&nbsp;s eyes-open + eyes-closed wizard saves <em>your</em> baseline (mean F, std F). All labels are user-relative — your "deeply focused" is your number, not a population average.</p>
+            </div>
+            <div class="lex">
+                <div class="role">private corpus</div>
+                <div class="name">Sessions</div>
+                <p>Start / Stop with a label (deep_work / reading / meditate / meeting / custom) + notes. Every frame appended to <code>~/.nao/sessions/&lt;id&gt;.jsonl</code>. A growing record of <em>your</em> brain across activities.</p>
+            </div>
+            <div class="lex">
+                <div class="role">grounded chat</div>
+                <div class="name">Coach</div>
+                <p>Ask questions like "where did I lose focus in this two-hour study?" The local LLM answers with citations to real numbers from your actual recording — current FocusFrame, recent trend, per-channel quality auto-injected.</p>
+            </div>
+            <div class="lex">
+                <div class="role">flattery brake</div>
+                <div class="name">Skeptic</div>
+                <p>Frontal-γ reward-spike detector with refractory + warmup gates. Surfaces a <code>caution</code> flag when an agent is about to <em>affirm</em> something you're already rewarding — a brake on flattery loops.</p>
+            </div>
+            <div class="lex">
+                <div class="role">advisory quiet</div>
+                <div class="name">Gatekeeper</div>
+                <p>Pure-logic FSM (OPEN ↔ QUIET) exposed to cooperating agents via <code>should_interrupt(urgency)</code>. Drives macOS Focus on edge transitions through user-installed Shortcuts.</p>
+            </div>
+        </div>
+    </section>
+
+    <section style="margin-top: 56px;">
+        <span class="section-label">✺ how it talks to your agents</span>
+        <p style="color: var(--ink-soft); margin-top: 8px; max-width: 720px;">A single MCP server — <code>nao-mcp</code> — exposes the brain. Wire it into Claude Desktop, Cursor, or your own MCP client and your tools start asking before they interrupt.</p>
+        <div class="code-block"><span class="c"># ~/Library/Application Support/Claude/claude_desktop_config.json</span>
+{
+  "mcpServers": {
+    "nao-brain": {
+      "command": "uv",
+      "args": ["--directory", "~/Code/resona", "run", "nao-mcp"],
+      "env": { "NAO_SOURCE": "muse" }
+    }
+  }
+}</div>
+        <p style="color: var(--ink-soft); margin-top: 18px; max-width: 720px;">Tools the agent gets:</p>
+        <ul style="color: var(--ink-soft); margin: 8px 0 0 22px; line-height: 1.7;">
+            <li><code>get_user_cognitive_load()</code> — single label (<code>deeply_focused</code> · <code>engaged</code> · <code>neutral</code> · <code>resting</code> · <code>uncertain</code>).</li>
+            <li><code>get_current_brain_state()</code> — full FocusFrame with band powers, per-channel α/β, latency.</li>
+            <li><code>get_focus_history(seconds)</code> — recent labeled trend.</li>
+            <li><code>should_interrupt(urgency)</code> — Gatekeeper's verdict before pinging you.</li>
+            <li><code>get_calibration()</code> — your personal F baseline.</li>
+        </ul>
+    </section>
+
+    <section style="margin-top: 56px;">
+        <span class="section-label">✺ privacy</span>
+        <div class="callout">
+            <strong>Raw EEG (µV) never leaves the Mac.</strong> Only summary scalars — Focus Coefficient, state labels, valence/arousal indices — cross any boundary. Local processing (Python sidecar on <code>:8765</code>); local models optional (Ollama). The Coach can run entirely offline.
+        </div>
+        <div class="callout">
+            <strong>Not a medical device.</strong> No diagnosis, no treatment claims. Resona surfaces correlates of attention from consumer-grade dry electrodes — useful, not clinical.
+        </div>
+    </section>
+
+    <section style="margin-top: 56px;">
+        <span class="section-label">✺ what you'll need</span>
+        <ul style="color: var(--ink-soft); margin: 8px 0 0 22px; line-height: 1.8; max-width: 720px;">
+            <li>A <strong>Muse-14B3</strong> headband (Muse-2 or Muse S; bring-your-own).</li>
+            <li>A Mac on <strong>macOS 14+</strong>, <strong>Apple Silicon</strong>.</li>
+            <li>An MCP-aware agent (Claude Desktop, Cursor, your own client) — optional but the wedge.</li>
+            <li>Ollama if you want the Coach to run fully offline (<code>brew install ollama</code>).</li>
+        </ul>
+    </section>
+
+    <section style="margin: 56px 0 20px;">
+        <span class="section-label">✺ why this exists</span>
+        <p style="color: var(--ink-soft); margin-top: 8px; max-width: 720px;">AI tools are too eager. Calendars don't know when you're <em>thinking</em>. Focus modes are crude — on/off, not continuous, not personal. Wearables tell you about your day; they don't change it.</p>
+        <p style="color: var(--ink-soft); margin-top: 14px; max-width: 720px;">The other lever — coaching the user — has been done to death. <strong>Resona coaches the user's agents instead.</strong> A brain-computer interface for the rest of your stack.</p>
+    </section>
+
+    <footer>
+        <div>© 2026 Shobeir Seddington · <a href="mailto:shobmaz@gmail.com">shobmaz@gmail.com</a></div>
+        <div>Resona — <em>your mind, in tune.</em></div>
+    </footer>
+</div>
+
+</body>
+</html>
