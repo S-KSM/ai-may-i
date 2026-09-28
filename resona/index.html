@@ -97,11 +97,12 @@
                 <span class="pill">macOS 14+</span>
                 <span class="pill">Apple Silicon</span>
                 <span class="pill">Muse-14B3</span>
+                <span class="pill">EEG + PPG</span>
                 <span class="pill">Local-only</span>
                 <span class="pill">MCP-native</span>
             </div>
             <div class="actions">
-                <a class="btn btn-primary" href="mailto:shobmaz@gmail.com?subject=Resona%20preview%20access&body=Hi%20Shobeir%2C%20I%27d%20like%20to%20try%20Resona.%20I%20own%20a%20Muse%3A%20%5Byes%2Fno%5D%2C%20and%20I%27d%20use%20it%20for%3A%20%5Bcontext%5D.">
+                <a class="btn btn-primary" href="mailto:sh.seddigh@gmail.com?subject=Resona%20preview%20access&body=Hi%20Shobeir%2C%20I%27d%20like%20to%20try%20Resona.%20I%20own%20a%20Muse%3A%20%5Byes%2Fno%5D%2C%20and%20I%27d%20use%20it%20for%3A%20%5Bcontext%5D.">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                     Request preview access
                 </a>
@@ -126,27 +127,42 @@
             <div class="lex">
                 <div class="role">personal baseline</div>
                 <div class="name">Calibration</div>
-                <p>60&nbsp;s eyes-open + eyes-closed wizard saves <em>your</em> baseline (mean F, std F). All labels are user-relative — your "deeply focused" is your number, not a population average.</p>
+                <p>60&nbsp;s eyes-open + eyes-closed wizard saves <em>your</em> baseline (mean F, std F) to <code>~/.nao/baseline.json</code>. All labels are user-relative — your "deeply focused" is your number, not a population average. Stale past 7 days; the app nags you to redo it.</p>
             </div>
             <div class="lex">
                 <div class="role">private corpus</div>
                 <div class="name">Sessions</div>
-                <p>Start / Stop with a label (deep_work / reading / meditate / meeting / custom) + notes. Every frame appended to <code>~/.nao/sessions/&lt;id&gt;.jsonl</code>. A growing record of <em>your</em> brain across activities.</p>
+                <p>Start / Stop with a label (deep_work / reading / meditate / meeting / sleep / custom) + notes. Every frame appended to <code>~/.nao/sessions/&lt;id&gt;.jsonl</code>. A dedicated <em>Sessions</em> tab lists them sortably and opens a detail view: focus timeline with biggest-drop pinned, frontal-asymmetry chart, per-quartile means, slope, calibration z-score, and delta vs prior sessions of the same label.</p>
             </div>
             <div class="lex">
                 <div class="role">grounded chat</div>
                 <div class="name">Coach</div>
-                <p>Ask questions like "where did I lose focus in this two-hour study?" The local LLM answers with citations to real numbers from your actual recording — current FocusFrame, recent trend, per-channel quality auto-injected.</p>
+                <p>Ask "where did I lose focus in this two-hour study?" or "how did this compare to my reading sessions?" The local LLM answers with citations to real numbers from your actual recording — current FocusFrame, recent trend, per-channel quality, and a session-scoped digest are auto-injected. Forbidden from fabricating numbers.</p>
+            </div>
+            <div class="lex">
+                <div class="role">two-axis read</div>
+                <div class="name">Affect</div>
+                <p>Frontal alpha asymmetry (Davidson, AF8 vs AF7) for approach/withdrawal valence + arousal index <code>(β + γ) / α</code> for activation. A defensible 2-axis emotional read — without over-claiming that 4 dry electrodes can classify discrete emotions.</p>
+            </div>
+            <div class="lex">
+                <div class="role">cardiac channel</div>
+                <div class="name">Heart + HRV</div>
+                <p>Muse PPG → bandpass + peak detection → <code>heart_rate_bpm</code> (±2 bpm at rest) and <code>hrv_rmssd</code> parasympathetic proxy. Two independent physiologies at once — "calm brain, racing heart" is visible instead of averaged into one number.</p>
             </div>
             <div class="lex">
                 <div class="role">flattery brake</div>
                 <div class="name">Skeptic</div>
-                <p>Frontal-γ reward-spike detector with refractory + warmup gates. Surfaces a <code>caution</code> flag when an agent is about to <em>affirm</em> something you're already rewarding — a brake on flattery loops.</p>
+                <p>Frontal-γ reward-spike detector with Welford rolling baseline, refractory + warmup gates, artifact-clean frames only. Surfaces a <code>caution</code> flag when an agent is about to <em>affirm</em> something you're already rewarding — a brake on flattery loops.</p>
             </div>
             <div class="lex">
                 <div class="role">advisory quiet</div>
                 <div class="name">Gatekeeper</div>
-                <p>Pure-logic FSM (OPEN ↔ QUIET) exposed to cooperating agents via <code>should_interrupt(urgency)</code>. Drives macOS Focus on edge transitions through user-installed Shortcuts.</p>
+                <p>Pure-logic FSM (OPEN ↔ QUIET) exposed to cooperating agents via <code>should_interrupt(urgency)</code>. 12 s clean engaged-or-better → QUIET; 8 s sub-engaged → OPEN; persistent bad contact forces fail-open. Drives macOS Focus on edge transitions through user-installed Shortcuts.</p>
+            </div>
+            <div class="lex">
+                <div class="role">no silent garbage</div>
+                <div class="name">Motion + contact</div>
+                <p>Accelerometer (gravity deviation) + gyroscope (angular velocity, &gt; 60 °/s) + EEG quality flags (BLINK / JAW / BAD_CONTACT) gate every frame. Dirty windows label <code>uncertain</code> — agents must not act. When a sensor lifts off your mastoid, the app tells you which channel and how to reseat it.</p>
             </div>
         </div>
     </section>
@@ -159,7 +175,7 @@
   "mcpServers": {
     "nao-brain": {
       "command": "uv",
-      "args": ["--directory", "~/Code/resona", "run", "nao-mcp"],
+      "args": ["--directory", "~/Code/EEG_Agentic", "run", "nao-mcp"],
       "env": { "NAO_SOURCE": "muse" }
     }
   }
@@ -167,10 +183,12 @@
         <p style="color: var(--ink-soft); margin-top: 18px; max-width: 720px;">Tools the agent gets:</p>
         <ul style="color: var(--ink-soft); margin: 8px 0 0 22px; line-height: 1.7;">
             <li><code>get_user_cognitive_load()</code> — single label (<code>deeply_focused</code> · <code>engaged</code> · <code>neutral</code> · <code>resting</code> · <code>uncertain</code>).</li>
-            <li><code>get_current_brain_state()</code> — full FocusFrame with band powers, per-channel α/β, latency.</li>
+            <li><code>get_current_brain_state()</code> — full FocusFrame with band powers, per-channel α/β/γ, frontal-F, asymmetry, arousal, heart rate, HRV, latency.</li>
             <li><code>get_focus_history(seconds)</code> — recent labeled trend.</li>
             <li><code>should_interrupt(urgency)</code> — Gatekeeper's verdict before pinging you.</li>
-            <li><code>get_calibration()</code> — your personal F baseline.</li>
+            <li><code>get_appraisal_state()</code> — Skeptic's caution flag + cooldown when frontal-γ just spiked.</li>
+            <li><code>get_queued_pings()</code> — what agents have parked while you're in QUIET.</li>
+            <li><code>get_calibration()</code> — your personal F baseline + age in days + <code>is_stale</code>.</li>
         </ul>
     </section>
 
@@ -192,6 +210,7 @@
             <li>An MCP-aware agent (Claude Desktop, Cursor, your own client) — optional but the wedge.</li>
             <li>Ollama if you want the Coach to run fully offline (<code>brew install ollama</code>).</li>
         </ul>
+        <p style="color: var(--ink-soft); margin-top: 18px; max-width: 720px;">After install, the menu-bar app lives at <code>/Applications/NaoBrain.app</code> and the sidecar runs under <code>launchd</code> (<code>~/Library/LaunchAgents/com.nao.sidecar.plist</code>, RunAtLoad + KeepAlive). You run zero commands; the brain comes up with the Mac.</p>
     </section>
 
     <section style="margin: 56px 0 20px;">
@@ -201,7 +220,7 @@
     </section>
 
     <footer>
-        <div>© 2026 Shobeir Seddington · <a href="mailto:shobmaz@gmail.com">shobmaz@gmail.com</a></div>
+        <div>© 2026 Shobeir Seddington · <a href="mailto:sh.seddigh@gmail.com">sh.seddigh@gmail.com</a></div>
         <div>Resona — <em>your mind, in tune.</em></div>
     </footer>
 </div>
