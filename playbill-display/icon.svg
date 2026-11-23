@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect x="14" y="14" width="172" height="172" rx="38" fill="#ffd23f" stroke="#1d1513" stroke-width="6"/>
+  <rect x="14" y="128" width="172" height="10" fill="#1d1513"/>
+  <text x="100" y="112" text-anchor="middle" font-family="Didot, 'Bodoni 72', Georgia, serif" font-weight="700" font-size="104" fill="#1d1513">P</text>
+</svg>
